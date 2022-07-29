@@ -1,0 +1,692 @@
+%	-------------------------------------------------------------------------------
+% 
+%
+%		2022년  07월  29일 금요일 첫 작업
+%
+%
+%
+%
+%
+%
+%
+%	-------------------------------------------------------------------------------
+	\documentclass[12pt, a4paper, oneside]{book}
+%	\documentclass[12pt, a4paper, landscape, oneside]{book}
+
+		% --------------------------------- 페이지 스타일 지정
+		\usepackage{geometry}
+%		\geometry{landscape=true	}
+		\geometry{top 		=10em}
+		\geometry{bottom		=10em}
+		\geometry{left		=8em}
+		\geometry{right		=8em}
+		\geometry{headheight	=4em} % 머리말 설치 높이
+		\geometry{headsep		=2em} % 머리말의 본문과의 띠우기 크기
+		\geometry{footskip		=4em} % 꼬리말의 본문과의 띠우기 크기
+% 		\geometry{showframe}
+	
+%		paperwidth 	= left + width + right (1)
+%		paperheight 	= top + height + bottom (2)
+%		width 		= textwidth (+ marginparsep + marginparwidth) (3)
+%		height 		= textheight (+ headheight + headsep + footskip) (4)
+
+
+
+		%	===================================================================
+		%	package
+		%	===================================================================
+%			\usepackage[hangul]{kotex}				% 한글 사용
+			\usepackage{kotex}						% 한글 사용
+			\usepackage[unicode]{hyperref}			% 한글 하이퍼링크 사용
+			\usepackage{amssymb,amsfonts,amsmath}	% 수학 수식 사용
+
+			\usepackage{scrextend}					% 
+		
+		% ------------------------------ 개조식 문서 작성
+			\usepackage{enumerate}			%
+			\usepackage{enumitem}			%
+			\usepackage{tabto}				%     tabto package
+			\usepackage{tablists}			%	수학문제의 보기 등을 표현하는데 사용
+										%	tabenum
+
+
+		% ------------------------------ table 
+			\usepackage{longtable}			%
+			\usepackage{tabularx}			%
+
+			\usepackage{setspace}			%
+			\usepackage{booktabs}			% table
+			\usepackage{color}				%
+			\usepackage{multirow}			%
+			\usepackage{boxedminipage}		% 미니 페이지
+			\usepackage[pdftex]{graphicx}	% 그림 사용
+			\usepackage[final]{pdfpages}	% pdf 사용
+			\usepackage{framed}			% pdf 사용
+			
+			\usepackage{fix-cm}	
+			\usepackage[english]{babel}
+	
+			\usepackage{tikz}%
+			\usetikzlibrary{arrows,positioning,shapes}
+			%\usetikzlibrary{positioning}
+			
+
+
+
+		% --------------------------------- page
+			\usepackage{afterpage}			% 다음페이지가 나온면 어떻게 하라는 명령 정의 패키지
+%			\usepackage{fullpage}			% 잘못 사용하면 다 흐트러짐 주의해서 사용
+%			\usepackage{pdflscape}			% 
+			\usepackage{lscape}			%	 
+
+
+			\usepackage{blindtext}
+	
+		% --------------------------------- font 사용
+			\usepackage{pifont}				%
+			\usepackage{textcomp}
+			\usepackage{gensymb}
+			\usepackage{marvosym}
+
+
+
+
+
+
+		% --------------------------------- 페이지 스타일 지정
+
+		\usepackage[Sonny]		{fncychap}
+
+			\makeatletter
+			\ChNameVar	{\Large\bf}
+			\ChNumVar		{\Huge\bf}
+			\ChTitleVar	{\Large\bf}
+			\ChRuleWidth	{0.5pt}
+			\makeatother
+
+%		\usepackage[Lenny]		{fncychap}
+%		\usepackage[Glenn]		{fncychap}
+%		\usepackage[Conny]		{fncychap}
+%		\usepackage[Rejne]		{fncychap}
+%		\usepackage[Bjarne]	{fncychap}
+%		\usepackage[Bjornstrup]{fncychap}
+
+		\usepackage{fancyhdr}
+		\pagestyle{fancy}
+		\fancyhead{} % clear all fields
+		\fancyhead[LO]{\footnotesize \leftmark}
+		\fancyhead[RE]{\footnotesize \leftmark}
+		\fancyfoot{} % clear all fields
+		\fancyfoot[LE,RO]{\large \thepage}
+		%\fancyfoot[CO,CE]{\empty}
+		\renewcommand{\headrulewidth}{1.0pt}
+		\renewcommand{\footrulewidth}{0.4pt}
+	
+	
+	
+		% --------------------------------- 	section 스타일 지정
+	
+		\usepackage{titlesec}
+		
+		\titleformat*{\section}			{\large\bfseries}
+		\titleformat*{\subsection}			{\normalsize\bfseries}
+		\titleformat*{\subsubsection}		{\normalsize\bfseries}
+		\titleformat*{\paragraph}			{\normalsize\bfseries}
+		\titleformat*{\subparagraph}		{\normalsize\bfseries}
+	
+		\renewcommand{\thesection}			{\arabic{section}.}
+		\renewcommand{\thesubsection}		{\thesection\arabic{subsection}.}
+		\renewcommand{\thesubsubsection}	{\thesubsection\arabic{subsubsection}}
+		
+		\titlespacing*{\section} 			{0pt}{1.0em}{1.0em}
+		\titlespacing*{\subsection}	  		{0ex}{1.0em}{1.0em}
+		\titlespacing*{\subsubsection}		{0ex}{1.0em}{1.0em}
+		\titlespacing*{\paragraph}			{0ex}{1.0em}{1.0em}
+		\titlespacing*{\subparagraph}		{0ex}{1.0em}{1.0em}
+	
+	%	\titlespacing*{\section} 			{0pt}{0.0\baselineskip}{0.0\baselineskip}
+	%	\titlespacing*{\subsection}	  		{0ex}{0.0\baselineskip}{0.0\baselineskip}
+	%	\titlespacing*{\subsubsection}		{6ex}{0.0\baselineskip}{0.0\baselineskip}
+	%	\titlespacing*{\paragraph}			{6pt}{0.0\baselineskip}{0.0\baselineskip}
+	
+
+		% --------------------------------- recommend		섹션별 페이지 상단 여백
+		\newcommand{\SectionMargin}			{\newpage  \null \vskip 2cm}
+		\newcommand{\SubSectionMargin}		{\newpage  \null \vskip 2cm}
+		\newcommand{\SubSubSectionMargin}	{\newpage  \null \vskip 2cm}
+
+
+	
+		% --------------------------------- 장의 목차
+		\usepackage{minitoc}
+		\setcounter{minitocdepth}{1}    	% Show until subsubsections in minitoc
+		\setlength{\mtcindent}{12pt} 		% default 24pt
+	
+	
+		% --------------------------------- 	문서 기본 사항 설정
+											% \chapter is level 0
+											% \section is level 1
+											% \subsection is level 2
+											% \subsubsection is level 3
+											% \paragraph is level 4
+											% \subparagraph is level 5	
+		\setcounter{tocdepth}{3} 			% 문단 번호 깊이
+		\setcounter{secnumdepth}{3} 		% 문단 번호 깊이
+		\setlength{\parindent}{0cm} 		% 문서 들여 쓰기를 하지 않는다.
+		
+
+		% --------------------------------- 	찾아보기
+		\usepackage{makeidx}
+		\makeindex
+
+		% --------------------------------- 	줄간격 설정
+		\doublespace
+%		\onehalfspace
+%		\singlespace
+		
+		
+% 	============================================================================== List global setting
+%		\setlist{itemsep=1.0em}
+	
+% 	============================================================================== enumi setting
+
+%		\renewcommand{\labelenumi}{\arabic{enumi}.} 
+%		\renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}}
+%		\renewcommand{\labelenumii}{(\arabic{enumii})}
+%		\renewcommand{\labelenumiii}{\arabic{enumiii})}
+
+
+	%	-------------------------------------------------------------------------------
+	%		Vertical and Horizontal spacing
+	%	-------------------------------------------------------------------------------
+		\setlist[enumerate,1]	{ leftmargin=8.0em, rightmargin=0.0em, labelwidth=0.0em, labelsep=0.0em }
+		\setlist[enumerate,2]	{ leftmargin=8.0em, rightmargin=0.0em, labelwidth=0.0em, labelsep=0.0em }
+		\setlist[enumerate,3]	{ leftmargin=8.0em, rightmargin=0.0em, labelwidth=0.0em, labelsep=0.0em }
+		\setlist[enumerate]	{ 	itemsep=0.0em, 
+								leftmargin=6.0ex, 
+								rightmargin=0.0em, 
+								labelwidth=0.0em, 
+								labelsep=4.0ex 
+							}
+
+
+	%	-------------------------------------------------------------------------------
+	%		Label
+	%	-------------------------------------------------------------------------------
+%		\setlist[enumerate,1]{ label=\arabic*., ref=\arabic* }
+%		\setlist[enumerate,1]{ label=\emph{\arabic*.}, ref=\emph{\arabic*} }
+%		\setlist[enumerate,1]{ label=\textbf{\arabic*.}, ref=\textbf{\arabic*} }   	% 1.
+%		\setlist[enumerate,1]{ label=\textbf{\arabic*)}, ref=\textbf{\arabic*)} }		% 1)
+		\setlist[enumerate,1]{ label=\textbf{(\arabic*)}, ref=\textbf{(\arabic*)} }	% (1)
+		\setlist[enumerate,2]{ label=\textbf{\arabic*)}, ref=\textbf{\arabic*)} }		% 1)
+		\setlist[enumerate,3]{ label=\textbf{\arabic*.}, ref=\textbf{\arabic*.} }		% 1.
+
+%		\setlist[enumerate,2]{ label=\emph{\alph*}),ref=\theenumi.\emph{\alph*} }
+%		\setlist[enumerate,3]{ label=\roman*), ref=\theenumii.\roman* }
+
+
+% 	============================================================================== itemi setting
+
+
+	%	-------------------------------------------------------------------------------
+	%		Vertical and Horizontal spacing
+	%	-------------------------------------------------------------------------------
+		\setlist[itemize]{itemsep=0.0em}
+
+
+	%	-------------------------------------------------------------------------------
+	%		Label
+	%	-------------------------------------------------------------------------------
+		\renewcommand{\labelitemi}{$\bullet$}
+		\renewcommand{\labelitemii}{$\cdot$}
+		\renewcommand{\labelitemiii}{$\diamond$}
+		\renewcommand{\labelitemiv}{$\ast$}		
+
+
+
+
+		% --------------------------------- recommend  글자 색깔지정 명령
+		\newcommand{\red}		{\color{red}}			% 글자 색깔 지정
+		\newcommand{\blue}		{\color{blue}}		% 글자 색깔 지정
+		\newcommand{\black}		{\color{black}}		% 글자 색깔 지정
+		\newcommand{\superscript}[1]{${}^{#1}$}
+
+	
+	
+		% --------------------------------- 환경 정의 : 박스 치고 안의 글자 빨간색
+
+			\newenvironment{BoxRedText}
+			{ 	\setlength{\fboxsep}{12pt}
+				\begin{boxedminipage}[c]{1.0\linewidth}
+				\color{red}
+			}
+			{ 	\end{boxedminipage} 
+				\color{black}
+			}
+			
+%		\setmainhangulfont[BoldFont=HY견고딕]{한컴돋움}
+%		\setsanshangulfont{HY견고딕}
+%		\setmonohangulfont{한컴돋움}
+			
+			
+
+% ------------------------------------------------------------------------------
+% Begin document (Content goes below)
+% ------------------------------------------------------------------------------
+	\begin{document}
+	
+			\dominitoc
+			
+
+			\title{클래식 음악}
+			\author{김대희}
+			\date{2022년 7월}
+			\maketitle
+
+
+			\tableofcontents
+			\listoffigures
+			\listoftables
+
+			
+
+
+
+% ===========================================================	part		=============
+		\addtocontents{toc}{\protect\newpage}
+		\part{클래식 음악 일반 사항}
+
+% ================================================= chapter 	====================
+	\newpage
+	\chapter{클래식 음악}
+
+
+	% -------------------------------------- page -------------------
+	%	\nomtcrule         		% removes rules = horizontal lines
+	%	\nomtcpagenumbers  % remove page numbers from minitocs
+		\newpage
+		\minitoc				% Creating an actual minitoc
+	%	\doublespace
+
+
+	% ------------------------------------------ section ------------ 
+	\newpage  \null
+	\section{클래식 음악}
+
+
+
+
+
+
+
+
+
+% ================================================= chapter 	====================
+	\newpage
+	\chapter{클래식 음악 관련 책자}
+
+
+
+
+% ================================================= chapter 	====================
+	\newpage
+	\chapter{재료와 도구}
+
+
+
+	\section{헤드밴드}
+
+	\section{가름끈}
+
+	\section{비즈왁스}
+
+	\section{제본실}
+
+
+	\section{펀칭 보드}
+
+	\section{망치}
+
+	\section{쇠 문진}
+
+	\section{송곳}
+
+	\section{스티칭 롤렛}
+
+	\section{가위}
+
+	\section{만능 쇠판}
+
+	\section{똑딱단추 고정도구}
+
+	\section{리벳 고정 도구}
+
+	\section{스프링 단추 고정 도구}
+
+	\section{타공 펀치}
+
+	\section{일자 칼 펀치}
+
+	\section{디바이더}
+
+
+	\section{테플론 폴더}
+
+	\section{본 폴더}
+
+	\section{마페드 폴더}
+
+
+	\section{제본 풀}
+
+	\section{롤러와 트레이}
+
+	\section{쇠자}
+
+	\section{코르크 보드}
+
+	\section{제본 바늘}
+
+	\section{제본 붓}
+
+	\section{칼}
+
+	\section{접착사}
+
+	\section{연필}
+
+	\section{커팅 매트}
+
+
+	\section{보드지}
+
+	\section{속지용 종이}
+
+	\section{면지용 종이}
+
+	\section{앨범진와 플레이놋}
+
+	\section{북 프레스기}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% ================================================= chapter 	====================
+	\newpage
+	\chapter{기본 테크닉}
+
+
+
+
+
+	% ------------------------------------------ section ------------ 
+	\section{종이결}
+
+	% ------------------------------------------ section ------------ 
+	\section{종이 접는 방법}
+
+	\section{본폴더 다듬기와 관리 방법}
+
+	\section{실 끼우기와 비즈왁스 사용법}
+
+	\section{템플릿 만드는 방법}
+
+
+	\section{속지 구멍 뚫는 방법}
+
+	\section{표지 커버링 하는 다양한 방법}
+
+
+% ================================================= chapter 	====================
+	\newpage
+	\chapter{실전 예제}
+
+
+
+	% ------------------------------------------ section ------------ 
+	\section{코덱스북 만들기}
+	% ------------------------------------------ section ------------ 
+	\section{리본을 이용한 노출 바인딩}
+	% ------------------------------------------ section ------------ 
+	\section{코뎃스북을 이용한 작은 날개가 있는 앨범}
+	% ------------------------------------------ section ------------ 
+	\section{포켓이 있는 크라프트 노트 만들기 - X 모양 바인딩}
+	% ------------------------------------------ section ------------ 
+	\section{싱글 섹션 바인딩}
+	% ------------------------------------------ section ------------ 
+	\section{캅틱 바인딩}
+	% ------------------------------------------ section ------------ 
+	\section{캅틱 엔드벤드}
+	% ------------------------------------------ section ------------ 
+	\section{롱 스트치 / 링크 스티치}
+	% ------------------------------------------ section ------------ 
+	\section{창이 뚫린 앨범 만들기 - ◇ 모양 바인딩}
+	% ------------------------------------------ section ------------ 
+	\section{끈을 이용한 노출 바이딩과 지그재그 모양으로 책등 꾸미기}
+	% ------------------------------------------ section ------------ 
+	\section{방명록 만들기}
+
+
+
+
+% ================================================= chapter 	====================
+	\newpage
+	\chapter{도안 모음}
+
+
+
+	\section{책등 탬플릿 도안}
+
+
+
+
+%	----------------------------------------------------------------------------------------------------------------------- 			
+% 	End document
+%	----------------------------------------------------------------------------------------------------------------------- 			
+	\end{document}
+
+
+
+
+
+
+
+
+
+%	----------------------------------------------------------------------------------------------------------------------- 			
+		\setlength{\fboxsep}{4pt}
+		\setlength{\fboxrule}{5pt}
+		\begin{framed}
+		\begin{itemize}[topsep=0.0em, parsep=0.0em, itemsep=0em, leftmargin=6em, labelwidth=4em, labelsep=2em]
+		\item[]	기초의 지지력 및 침하량 계산 시, 기초구조물 상부에 작용하는 연직하중, 기초 구조물의 자중, 기초 구조물 바닥면에 작용하는 수압, 수평하중, 측벽의 수동토압 및 수압 등을 고려한다.
+		\end{itemize}
+		\end{framed}
+
+			기초에 작용하는 하중을 계산할 경우에는 다음의 하중을 적용하며, 상부 구조체에 의한 하중 전이를 고려할 수 있다. 
+			이러한 하중을 적용할 경우에는 하중계수를 적용하지 않고 산정한 하중을 적용해야 한다.
+
+		\begin{itemize}[topsep=0.0em, parsep=0.0em, itemsep=0em, leftmargin=6em, labelwidth=4em, labelsep=2em]
+		\item[①] 기초체 상부에 작용하는 연직하중을 고려하여 전단파괴와  침하 등을 검토한다.
+		\item[②] 기초체의 자중도 기초의 안정성 검토 하중에 포함해야 한다.
+		\item[③] 기초체 바닥면에 작용하는 수압을 고려하여 기초작용 하중을 결정해야 한다.
+		\item[④] 수평하중을 고려하여 기초의 활동에 대한 안정성을 검토해야 한다.
+		\item[⑤] 측벽의 수동토압 및 수압 등을 수평하중에 포함시켜야 한다.
+		\end{itemize}
+
+
+	\begin{description}[style=sameline, leftmargin=6em]
+	\setlength\topsep{0.0em}
+	\setlength\itemsep{0.0em}
+
+		\item[$q_{all}$] 	허용지지력
+		\item[$q_{cone}$] 	콘의 전단저항
+			 	
+	\end{description}
+	
+
+%	-----------------------------------------------------------------------------------------------------------------------		PDF 파일 끼워 넣기 				
+	\clearpage		
+%			\cleardoublepage
+			\includepdf[pages=-, fitpaper=true ]{./math/BearingCapacityFactor.pdf}	
+
+
+%	-----------------------------------------------------------------------------------------------------------------------		시공 사진 정리
+		\begin{itemize}[topsep=0.0em, parsep=0.0em, itemsep=0em, leftmargin=6em, labelwidth=4em, labelsep=2em] \item[]
+	
+				\begin{boxedminipage}[c] {1.0\linewidth} 
+				\includegraphics[height=1.0\textwidth,angle=90]{./photo/20160322_151450.jpg}	
+				맹암거 부직포 설치 전경
+				\end{boxedminipage} 	
+			
+				\begin{boxedminipage}[c] {1.0\linewidth} 
+				\includegraphics[width=1.0\textwidth]{./photo/20160322_151453.jpg}	
+				\end{boxedminipage} 	
+		
+				\begin{boxedminipage}[c] {1.0\linewidth} 
+				\includegraphics[height=1.0\textwidth,angle=90]{./photo/20160322_151524.jpg}	
+				맹암거 채움골재
+				\end{boxedminipage} 	
+		
+				\begin{boxedminipage}[c] {1.0\linewidth} 
+				\includegraphics[width=1.0\textwidth]{./photo/20160322_151526.jpg}	
+				\end{boxedminipage} 	
+		
+		\end{itemize}
+
+
+%	-----------------------------------------------------------------------------------------------------------------------		tabu
+					\clearpage
+					\begin{table}[H!]
+					\caption{해설 표 4.2.3 Terzaghi의 수정지지력계수}
+%					\tabulinesep=2ex
+					\begin{tabu} to 1.0\textwidth { X[c,m, 1.0] X[c, 1.0] X[c, 0.0] X[c, 0.0] }
+					\tabucline[0.2ex]{-}		
+					\tabucline[0.1ex]{-}
+					\tabucline[0.1ex]{-}		
+					\end{tabu}
+					\label{tab:4.2.3}
+					\end{table}		
+
+		
+					\clearpage
+					\begin{figure}[H!]
+					\caption{해설 그림 4.2.5 Terzaghi의 수정지지력계수}
+					\label{tab:4.2.5}
+					\end{figure}
+
+			\usepackage{ textcomp }
+			\textreferencemark
+
+			\begin{itemize}[topsep=0.0em, parsep=0.0em, itemsep=1.0em, leftmargin=6em, labelwidth=4em, labelsep=2em]
+				\item	Meyerhof는 {\scriptsize해설 그림 4.2.6}과 같이 전단파괴를 가정하고 {\scriptsize해설 식 (4.2.6)}과 같은 극한지지력 공식을 유도하였다. 
+			\end{itemize}
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
